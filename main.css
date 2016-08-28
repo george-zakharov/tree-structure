@@ -30,3 +30,23 @@ body, html {
     color: black;
     font-size: 1.2em;
 }
+
+/*Tree output*/
+.output_block {
+    display: inline-block;
+    width: 100%;
+}
+
+.tree_output {
+    font-size: 1.2em;
+}
+
+.full_tree {
+    float: left;
+    margin-left: 15em;
+}
+
+.section_block {
+    float: right;
+    margin-right: 15em;
+}

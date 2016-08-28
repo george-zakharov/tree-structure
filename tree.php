@@ -25,13 +25,25 @@ $nodes = new NodeHandler();
 <!-- Header text -->
 <h1 class="lead_header">Tree Structure Representation</h1>
 <!-- Tree structure -->
-<h2>Whole Tree</h2>
-<?php
-$nodes->showTree();
-?>
-<h2>Section of the Tree</h2>
-<?php
-$nodes->showTree(3);
-?>
+<div class="output_block">
+    <div class="full_tree">
+        <h2>Whole Tree</h2>
+        <p class="tree_output">
+            <?php
+            //Show whole tree of nodes.
+            $nodes->showTree();
+            ?>
+        </p>
+    </div>
+    <div class="section_block">
+        <h2>Section of the Tree</h2>
+        <p class="tree_output">
+            <?php
+            //Show tree of nodes from position set in parameter.
+            $nodes->showTree(3);
+            ?>
+        </p>
+    </div>
+</div>
 </body>
 </html>
