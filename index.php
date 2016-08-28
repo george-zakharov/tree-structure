@@ -1,3 +1,28 @@
+<?php
+//error_reporting(E_ALL);
+require 'App/NodeHandler.php';
+$nodes = new NodeHandler();
+/**
+ * This is example of deleting node inside tree
+ */
+//$nodes->deleteNode(21);
+
+/**
+ * This is example of deleting whole tree
+ */
+//$nodes->deleteNode();
+
+/**
+ * This is example of adding node inside tree
+ */
+//$nodes->addNewNode('automobile', 'niva');
+
+/**
+ * This is example of adding node in root level
+ */
+//$nodes->addNewNode(null, 'scooter');
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,22 +34,28 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<!-- Navigation -->
-<nav>
-    <ul class="menu">
-        <li><a href="index.php">Enter node</a></li>
-        <li><a href="delete.php">Delete node</a></li>
-        <li><a href="tree.php">Tree</a></li>
-    </ul>
-</nav>
 <!-- Header text -->
-<h1 class="lead_header">Tree Structure Project</h1>
-<!-- Form to enter number -->
-<form action="result.php" method="post" class="center_block">
-    <p>Enter your number (max 13)
-        <input type="text" size="15" name="number" title="Insert your number">
-    </p>
-    <input type="submit">
-</form>
+<h1 class="lead_header">Tree Structure Representation</h1>
+<!-- Tree structure -->
+<div class="output_block">
+    <div class="full_tree">
+        <h2>Whole Tree</h2>
+        <p class="tree_output">
+            <?php
+            //Show whole tree of nodes.
+            $nodes->showTree();
+            ?>
+        </p>
+    </div>
+    <div class="section_block">
+        <h2>Section of the Tree</h2>
+        <p class="tree_output">
+            <?php
+            //Show tree of nodes from position (id of the parent) set in parameter.
+            $nodes->showTree(3);
+            ?>
+        </p>
+    </div>
+</div>
 </body>
 </html>

@@ -64,7 +64,7 @@ class DbConnector {
     }
 
     /**
-     * This method returns an instance of the this class.
+     * Return an instance of the this class.
      * @return DbConnector|null
      */
     public static function getInstance()
@@ -77,7 +77,7 @@ class DbConnector {
     }
 
     /**
-     * This method returns PDO object to establish a connection.
+     * Return PDO object to establish a connection.
      * @return PDO
      */
     public function getConnection()

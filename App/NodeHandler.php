@@ -10,9 +10,9 @@ class NodeHandler
     /**
      * Show the tree of nodes.
      * For default all tree is shown.
-     * @param int $id
+     * @param null $id
      */
-    public function showTree($id = 1)
+    public function showTree($id = null)
     {
         //Get nodes from DB
         $result = Model::getNodes($id);
@@ -24,5 +24,26 @@ class NodeHandler
             //Use `strlen($node['name']) + $node['level']` to set number of symbols "-" equal to level of the node.
             echo nl2br(str_pad($node['name'], strlen($node['name']) + $node['level'], "-", STR_PAD_LEFT) . "\n");
         }
+    }
+
+    /**
+     * Add new node.
+     * For default new node sets to root level with `$parent_name = null` provided.
+     * @param null $parent_name
+     * @param $new_node_name
+     */
+    public function addNewNode($parent_name = null, $new_node_name)
+    {
+        Model::setNode($parent_name, $new_node_name);
+    }
+
+    /**
+     * Delete node.
+     * For default delete whole tree of nodes.
+     * @param null $id
+     */
+    public function deleteNode($id = null)
+    {
+        Model::deleteNode($id);
     }
 }
