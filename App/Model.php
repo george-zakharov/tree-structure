@@ -33,7 +33,9 @@ class Model
         } else {
             throw new Exception('id of the node is not correct');
         }
+        
         $stmt->execute(array($id, $id));
+        
         return $stmt->fetchAll();
     }
 
@@ -60,6 +62,7 @@ class Model
         } else {
             throw new Exception('Need string or null in $parent_name');
         }
+        
         $stmt->execute(array($parent_name));
         $position = $stmt->fetchAll();
         $level = $position[0]['level'];
@@ -81,6 +84,7 @@ class Model
         } else {
             throw new Exception('Need name of the new node in $new_node_name');
         }
+        
         $stmt->bindParam(':level', $level, PDO::PARAM_INT);
         $stmt->bindParam(':right_key', $right_key, PDO::PARAM_INT);
         $stmt->bindParam(':name', $new_node_name, PDO::PARAM_STR);
@@ -104,6 +108,7 @@ class Model
             $stmt = DbConnector::getInstance()->getConnection()->prepare(
                 'SELECT left_key, right_key FROM nodes WHERE id = ?'
             );
+            
             $stmt->execute(array($id));
             $position = $stmt->fetchAll();
             $left_key = $position[0]['left_key'];
@@ -121,6 +126,7 @@ class Model
         } else {
             throw new Exception('id of the node is not correct');
         }
+        
         $stmt->bindParam(':left_key', $left_key, PDO::PARAM_INT);
         $stmt->bindParam(':right_key', $right_key, PDO::PARAM_INT);
         $stmt->execute();
