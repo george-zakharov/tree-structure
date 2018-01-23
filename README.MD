@@ -50,7 +50,7 @@ that provides representation of __Nodes Tree__ in two modes:
 * It is partly filled for example.
 
 ## Database structure ##
-* Data stores via __[Nested Sets](http://phpwiki.ru/tree/ns, 'Link')__ method.
+* Data stores via __[Nested Sets](http://phpwiki.ru/tree/ns)__ method.
 * For example is provided a catalogue (of cars) in such hierarchy:
  * vehicle
     * Type (Motorcycle, Automobile)
