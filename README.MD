@@ -45,7 +45,7 @@ that provides representation of __Nodes Tree__ in two modes:
     * `deleteNode()` to delete node from __Database__ via __Model.php__ from the specified level or to delete 
     the whole tree.
     
-### tree-structure.sql ###
+### tree-structure-example.sql ###
 * This is the dump of the tables of my local `tree-structure` __Database__.
 * It is partly filled for example.
 
