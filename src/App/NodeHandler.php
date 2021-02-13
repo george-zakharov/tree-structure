@@ -11,9 +11,12 @@ class NodeHandler
     /**
      * Show the tree of nodes.
      * For default all tree is shown.
+     *
      * @param null $id
+     *
+     * @throws Exception
      */
-    public function showTree($id = null)
+    public function showTree($id = null): void
     {
         //Get nodes from DB
         $result = Model::getNodes($id);
@@ -30,10 +33,13 @@ class NodeHandler
     /**
      * Add new node.
      * For default new node sets to root level with `$parent_name = null` provided.
+     *
      * @param null $parent_name
      * @param $new_node_name
+     *
+     * @throws Exception
      */
-    public function addNewNode($parent_name = null, $new_node_name)
+    public function addNewNode($new_node_name, $parent_name = null): void
     {
         Model::setNode($parent_name, $new_node_name);
     }
@@ -41,9 +47,12 @@ class NodeHandler
     /**
      * Delete node.
      * For default delete whole tree of nodes.
+     *
      * @param null $id
+     *
+     * @throws Exception
      */
-    public function deleteNode($id = null)
+    public function deleteNode($id = null): void
     {
         Model::deleteNode($id);
     }

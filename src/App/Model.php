@@ -1,4 +1,5 @@
 <?php
+
 require 'DbConnector.php';
 
 /**
@@ -11,11 +12,14 @@ class Model
      * Get nodes from DB.
      * For default the $id is set to null and method returns all nodes (all root nodes too).
      * If the $id of the node is provided, method returns this node and all nested nodes.
+     *
      * @param int $id
+     *
      * @return array
+     *
      * @throws Exception
      */
-    public static function getNodes($id = null)
+    public static function getNodes($id = null): array
     {
         if ($id === null) {
             $stmt = DbConnector::getInstance()->getConnection()->prepare(
@@ -34,7 +38,7 @@ class Model
             throw new Exception('id of the node is not correct');
         }
         
-        $stmt->execute(array($id, $id));
+        $stmt->execute([$id, $id]);
         
         return $stmt->fetchAll();
     }
@@ -42,11 +46,13 @@ class Model
     /**
      * Set new node to the tree.
      * If $parent_name is `null` and $new_node_name is provided, a new root node sets.
+     *
      * @param null $parent_name
      * @param $new_node_name
+     *
      * @throws Exception
      */
-    public static function setNode($parent_name = null, $new_node_name)
+    public static function setNode($new_node_name, $parent_name = null): void
     {
         if ($parent_name === null) {
             $stmt = DbConnector::getInstance()->getConnection()->prepare(
@@ -63,7 +69,7 @@ class Model
             throw new Exception('Need string or null in $parent_name');
         }
         
-        $stmt->execute(array($parent_name));
+        $stmt->execute([$parent_name]);
         $position = $stmt->fetchAll();
         $level = $position[0]['level'];
         $right_key = $position[0]['right_key'];
@@ -94,10 +100,12 @@ class Model
     /**
      * Delete node from tree.
      * By default $id is `null` and the whole tree can be deleted.
+     *
      * @param null $id
+     *
      * @throws Exception
      */
-    public static function deleteNode($id = null)
+    public static function deleteNode($id = null): void
     {
         if ($id === null) {
             $stmt = DbConnector::getInstance()->getConnection()->prepare(
@@ -109,7 +117,7 @@ class Model
                 'SELECT left_key, right_key FROM nodes WHERE id = ?'
             );
             
-            $stmt->execute(array($id));
+            $stmt->execute([$id]);
             $position = $stmt->fetchAll();
             $left_key = $position[0]['left_key'];
             $right_key = $position[0]['right_key'];
