@@ -1,0 +1,15 @@
+{
+    "name": "george-zakharov/tree-structure",
+    "description": "This project helps to operate with tree structure based on Nested Sets method via MySQL",
+    "type": "project",
+    "authors": [
+        {
+            "name": "George Zakharov",
+            "email": "george_zakharov@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4"
+    }
+}
